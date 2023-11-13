@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="style.css" >
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	</head>
+	<body>
+    <h2>우리팀의 정보를 출력하자</h2><hr>
+		<div id="app">
+			<my-component my-color="blue" my-name="도트리 키재기"></my-component></my-component>
+      <my-component my-color="green" my-name="도트리 키재기1"></my-component></my-component>
+      <my-component my-color="yellow" my-name="도트리 키재기2"></my-component></my-component>
+		</div>
+    <script>
+      const {createApp} = Vue;
+
+      const MyComponent = {
+				template: '<h2 class="my-comp" v-bind:style="{color:myColor}">1조 - {{ myName }}</h2><ul><li>송기영<li>유승희<li>이성수<li>전승현</ul><hr>',
+				props: {
+					myName: String,
+          myColor: String
+				}
+			}
+			createApp({
+        data() {
+					return {
+						myColor:'red'
+					}
+				},
+				components: {
+					'my-component': MyComponent
+				}
+			}).mount('#app');
+    </script>
+		       
+  </body>
+</html>
